@@ -2,16 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Configuration pour GitHub Pages
-  // Décommentez et ajustez ces lignes selon votre cas d'utilisation
-  // basePath: process.env.NODE_ENV === 'production' ? '/nom-du-repo' : '',
-  // assetPrefix: process.env.NODE_ENV === 'production' ? '/nom-du-repo/' : '',
-  // output: 'export', // Pour générer des fichiers statiques si nécessaire
+  // Configuration pour le déploiement statique
+  output: 'export', // Remplacement de next export
   
-  images: {
-    // Suppression de la configuration dépréciée
-    // domains: ['lh3.googleusercontent.com', 'drive.google.com', 'images.unsplash.com'],
+  // Résout le problème de conflit entre i18n et output: 'export'
+  i18n: process.env.NODE_ENV === 'development'
+    ? {
+        locales: ['fr'],
+        defaultLocale: 'fr',
+      } 
+    : undefined,
     
+  images: {
     // Utilisation de la nouvelle configuration remotePatterns
     remotePatterns: [
       {
@@ -31,10 +33,7 @@ const nextConfig = {
       },
     ],
     formats: ['image/avif', 'image/webp'],
-  },
-  i18n: {
-    locales: ['fr'],
-    defaultLocale: 'fr',
+    unoptimized: true, // Nécessaire pour les exports statiques
   },
   webpack: (config) => {
     // Vérifier si les modules sont disponibles avant de les utiliser

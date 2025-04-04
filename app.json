@@ -1,0 +1,24 @@
+{
+  "name": "nalafrica",
+  "version": "3.4.0",
+  "description": "Application web de destinations touristiques avec réservation via WhatsApp",
+  "keywords": [
+    "next.js",
+    "react",
+    "voyage",
+    "tourisme"
+  ],
+  "website": "https://nalafrica-61708131c23d.herokuapp.com/",
+  "repository": "https://github.com/ambyltd/Nala",
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment pour le déploiement.",
+      "value": "production"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

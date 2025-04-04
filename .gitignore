@@ -24,6 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -45,3 +46,7 @@ pnpm-lock.yaml
 # Logs
 logs
 *.log
+
+# Heroku
+/.cache/
+npm-debug.log

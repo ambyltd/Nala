@@ -5,14 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx serve -s out",
+    "start": "node server.js",
     "lint": "next lint",
     "export": "next build",
     "deploy": "npm run build && firebase deploy --only hosting",
     "deploy:preview": "npm run build && firebase hosting:channel:deploy preview",
     "analyze": "ANALYZE=true next build",
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@types/nodemailer": "^6.4.17",
@@ -29,7 +30,7 @@
     "react-icons": "^4.12.0",
     "sharp": "^0.33.1",
     "swr": "^2.2.4",
-    "serve": "^14.0.0"
+    "express": "^4.18.3"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.1.0",

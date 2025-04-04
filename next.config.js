@@ -2,19 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Configuration pour le déploiement statique
-  output: 'export', // Remplacement de next export
+  // Suppression de la configuration pour export statique
+  // output: 'export', // Cette option cause des problèmes avec les routes dynamiques
   
-  // Résout le problème de conflit entre i18n et output: 'export'
-  i18n: process.env.NODE_ENV === 'development'
-    ? {
-        locales: ['fr'],
-        defaultLocale: 'fr',
-      } 
-    : undefined,
-    
   images: {
-    // Utilisation de la nouvelle configuration remotePatterns
     remotePatterns: [
       {
         protocol: 'https',
@@ -33,7 +24,7 @@ const nextConfig = {
       },
     ],
     formats: ['image/avif', 'image/webp'],
-    unoptimized: true, // Nécessaire pour les exports statiques
+    unoptimized: true, 
   },
   webpack: (config) => {
     // Vérifier si les modules sont disponibles avant de les utiliser

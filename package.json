@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node server.js",
+    "start": "NODE_ENV=production node index.js",
     "lint": "next lint",
     "export": "next build",
     "deploy": "npm run build && firebase deploy --only hosting",
@@ -63,7 +63,7 @@
   "license": "ISC",
   "type": "commonjs",
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
+    "node": "18.x",
+    "npm": "9.x"
   }
 }

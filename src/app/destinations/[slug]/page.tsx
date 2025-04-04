@@ -29,6 +29,34 @@ export async function generateMetadata({ params }: { params: { slug: string }}):
   }
 }
 
+// Ajouter cette fonction pour permettre l'export statique
+export async function generateStaticParams() {
+  // Récupérer les données depuis votre source (API, fichier, etc.)
+  const destinations = await fetchDestinationsData();
+  
+  // Retourner un tableau d'objets avec les paramètres de route
+  return destinations.map((destination) => ({
+    slug: destination.slug,
+  }));
+}
+
+// Fonction auxiliaire pour récupérer les données
+async function fetchDestinationsData() {
+  try {
+    // Si vous avez déjà une fonction pour récupérer les données, utilisez-la
+    // Sinon, utilisez cette implémentation de secours basique
+    return [
+      { slug: 'maroc' },
+      { slug: 'senegal' },
+      { slug: 'madagascar' },
+      // Ajoutez d'autres destinations selon vos besoins
+    ];
+  } catch (error) {
+    console.error('Erreur lors de la récupération des destinations', error);
+    return [];
+  }
+}
+
 export default async function DestinationPage({ params }: { params: { slug: string }}) {
   const destination = await getDestination(params.slug);
   

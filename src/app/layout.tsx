@@ -21,10 +21,13 @@ export const metadata: Metadata = {
   title: 'Voyage Dream | Destinations Touristiques de Rêve',
   description: 'Découvrez nos destinations de voyage exceptionnelles et réservez votre prochain séjour de rêve directement via WhatsApp.',
   keywords: 'voyage, tourisme, destinations, réservation, voyage de rêve, séjour',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://nalafrica-61708131c23d.herokuapp.com/'),
+  authors: [{ name: 'Nala Africa' }],
+  creator: 'Nala Africa',
   openGraph: {
     title: 'Voyage Dream | Destinations Touristiques de Rêve',
     description: 'Découvrez nos destinations de voyage exceptionnelles et réservez votre prochain séjour de rêve directement via WhatsApp.',
-    url: 'https://nala-africa.web.app',
+    url: 'https://nalafrica-61708131c23d.herokuapp.com/',
     siteName: 'Voyage Dream',
     images: [
       {
